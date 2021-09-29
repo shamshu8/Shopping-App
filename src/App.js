@@ -47,18 +47,18 @@ function App() {
     <div className="App">
       {/* <ComponentOne /> */}
 
-      <h1>Shopping App </h1>
+      <h1>E commerce </h1>
 
       <Router>
         <Switch>
+          <PublicRoute exact path="/login" component={<LoginPage />} />
+          <PublicRoute exact path="/signup" component={<SignupPage />} />
           <ProctedRoute exact path="/Shopping" component={<Shopping />} />
           <ProctedRoute
             exact
             path="/product/checkout"
             component={<Cartreview />}
           />
-          <PublicRoute exact path="/login" component={<LoginPage />} />
-          <PublicRoute exact path="/signup" component={<SignupPage />} />
         </Switch>
       </Router>
     </div>
