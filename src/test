@@ -1,0 +1,36 @@
+1.  Filter option for shopping app
+
+https://zealedshock.backendless.app/45B7D0C9-85AC-6EE4-FF26-F6B59A861800/users/register
+
+{
+"name" : "Test",
+"email" : "text@gmail.com",
+"password": "123456789"
+
+}
+
+Test
+
+test12345@gmail.com
+123456789
+
+shamshu12345@gmail.com
+123456789
+
+GitHub.
+
+1.  Verify the Github version the commond is
+    git --version
+
+2.  push your code to Github.
+
+             1. Shopping app- Project Name
+                     1. Create a new repository with own name.
+                                 a. Make Public/private = as you wish
+                     2. git init.
+                     3. git status
+                                 This will check what are the files are added and to be added. Added will be in green color and to be added/modified will be in red color.
+                     4. to add your code into GitHub
+                             1. For single file use this. git add filename.
+                             2. for entire file in the project you can use
+                                        git add .

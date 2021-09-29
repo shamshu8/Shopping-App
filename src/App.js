@@ -1,23 +1,66 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import "./App.css";
+import Cartreview from "./Components/Cartreview";
+import LoginPage from "./Components/loginPage";
+import Shopping from "./Components/Shopping";
+import SignupPage from "./Components/SignupPage";
+import ComponentOne from "./PropstoChild";
+
+const ProctedRoute = (props) => {
+  const { path, component, ...rest } = props;
+  return (
+    <Route
+      {...rest}
+      exact
+      path={path}
+      render={() => {
+        if (sessionStorage.getItem("user-token") != null) {
+          return component;
+        } else {
+          return (window.location.href = "/login");
+        }
+      }}
+    />
+  );
+};
+const PublicRoute = (props) => {
+  const { path, component, ...rest } = props;
+  return (
+    <Route
+      {...rest}
+      exact
+      path={path}
+      render={() => {
+        if (sessionStorage.getItem("user-token") == null) {
+          return component;
+        } else {
+          return (window.location.href = "/Shopping");
+        }
+      }}
+    />
+  );
+};
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {/* <ComponentOne /> */}
+
+      <h1>Shopping App </h1>
+
+      <Router>
+        <Switch>
+          <ProctedRoute exact path="/Shopping" component={<Shopping />} />
+          <ProctedRoute
+            exact
+            path="/product/checkout"
+            component={<Cartreview />}
+          />
+          <PublicRoute exact path="/login" component={<LoginPage />} />
+          <PublicRoute exact path="/signup" component={<SignupPage />} />
+        </Switch>
+      </Router>
     </div>
   );
 }
